@@ -5,7 +5,15 @@
     %title Add a video
   %body
     %form{action:'addvid', method:'post'}
+      - if (!userid)
+        %label{for:'userid'}
+          Enter a userid:
+        %input#userid{name:'userid', style:'width:500px'}
+      %br
       %label{for:'vidid'}
         Enter a youtube URL:
       %input#vidid{name:'vidid', style:'width:500px'}
       %input{type:'submit'}
+    %ul
+      - each vid in vids
+        %li= vid.u + ' : ' + vid.v
