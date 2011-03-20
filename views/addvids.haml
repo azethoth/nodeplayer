@@ -4,12 +4,14 @@
   %head
     %title Add a video
   %body
+    - if (err && err.length)
+      %h3='Error: ' + err
     %form{action:'addvid', method:'post'}
       - if (!userid)
         %label{for:'userid'}
           Enter a userid:
         %input#userid{name:'userid', style:'width:500px'}
-      %br
+        %br
       %label{for:'vidid'}
         Enter a youtube URL:
       %input#vidid{name:'vidid', style:'width:500px'}
