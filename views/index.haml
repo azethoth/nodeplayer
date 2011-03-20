@@ -1,0 +1,14 @@
+!!! XML
+!!! strict
+%html{ xmlns: "http://www.w3.org/1999/xhtml" }
+  %head
+    %title Node playorz
+  %body
+    #ytapiplayer
+    %script{ type:'text/javascript', src:'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' }
+    %script{ type:'text/javascript', src:'swfobject/swfobject.js' }
+    %script{ type:'text/javascript', src:'logic.js' }
+    %script
+      var params = { allowScriptAccess: 'always' };
+      var atts = { id: 'ytplayorz' };
+      swfobject.embedSWF('http://www.youtube.com/v/u1zgFlCw8Aw?version=3&enablejsapi=1&playerapiid=ytplayer', 'ytapiplayer', '425', '356', '8', null, null, params, atts);
