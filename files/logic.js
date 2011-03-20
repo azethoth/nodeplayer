@@ -2,7 +2,7 @@ function onYouTubePlayerReady(playerId) {
   ytplayer = document.getElementById('ytplayorz');
   ytplayer.addEventListener('onStateChange', 'handleStateChange');
   ytplayer.addEventListener('onError', 'handleError');
-  ytplayer.playVideo();
+  handleStateChange(0);
 }
 
 var interval = null;

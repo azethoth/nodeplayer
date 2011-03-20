@@ -5,5 +5,7 @@
     %title Add a video
   %body
     %form{action:'addvid', method:'post'}
-      %input{name:'vidid'}
+      %label{for:'vidid'}
+        Enter a youtube URL:
+      %input#vidid{name:'vidid', style:'width:500px'}
       %input{type:'submit'}
