@@ -7,11 +7,17 @@ function onYouTubePlayerReady(playerId) {
 
 var interval = null;
 function pollForSong(success) {
-  function gotSong(songId) {
-    if (songId) {
-      clearInterval(interval);
-      interval = null;
-      success(songId);
+  function gotSong(res) {
+    if (res) {
+      res = JSON.parse(res);
+      if (res && res.v) {
+        clearInterval(interval);
+        interval = null;
+        if (res.u) {
+          document.getElementById('userId').innerText = 'Requested by: ' + res.u;
+        }
+        success(res.v);
+      }
     }
   }
   if (!interval) {

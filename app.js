@@ -24,7 +24,7 @@ app.get('/addvids', function(req, res) {
 });
 
 app.get('/nextvideo', function(req, res) {
-  res.send(vids.length ? vids.shift().v : '');
+  res.send(vids.length ? JSON.stringify(vids.shift()) : '');
 });
 
 app.post('/addvid', function(req, res) {
@@ -41,6 +41,17 @@ app.post('/addvid', function(req, res) {
     var query = querystring.parse(qs);
     if (query.v) {
       vids.push({v:query.v,u:userid});
+      gotvid = true;
+    } else if (query.video_ids) {
+      var v_ids = query.video_ids.split(',');
+      var index = typeof query.index !== 'undefined' ? query.index : 0;
+      var first = v_ids[index];
+      vids.push({v:first,u:userid});
+      for (var i=0;i<v_ids.length;++i) {
+        if (v_ids[i] !== first) {
+          vids.push({v:v_ids[i],u:userid});
+        }
+      }
       gotvid = true;
     }
   }
