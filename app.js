@@ -29,7 +29,7 @@ app.get('/nextvideo', function(req, res) {
 app.post('/addvid', function(req, res) {
   var userid = req.body.userid;
   if (userid) {
-    res.cookie('userid', userid, {maxAge:1000*60*24*30, path:'/'});
+    res.cookie('userid', userid, {maxAge:1000*60*24*30*12, path:'/'});
   } else {
     userid = req.cookies.userid;
   }
