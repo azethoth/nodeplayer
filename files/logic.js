@@ -14,7 +14,7 @@ function pollForSong(success) {
         clearInterval(interval);
         interval = null;
         if (res.u) {
-          document.getElementById('userId').innerText = 'Requested by: ' + res.u;
+          $('#userId').text('Requested by: ' + res.u);
         }
         success(res.v);
       }
